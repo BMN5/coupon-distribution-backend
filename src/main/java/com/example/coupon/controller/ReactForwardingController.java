@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ReactForwardingController {
-    @GetMapping("/{path:[^\\.]*}")
+    @GetMapping("/{path:^(?!api|static|assets).*$}")
     public String forwardToReact() {
         return "forward:/index.html";
     }
