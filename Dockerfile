@@ -1,5 +1,5 @@
 # 🌟 Stage 1: Build the Spring Boot Application
-FROM maven:3.9.2-eclipse-temurin-17-alpine AS builder
+FROM maven:3.9.2-eclipse-temurin-21-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -16,7 +16,7 @@ COPY src/main/resources/static/ src/main/resources/static/
 RUN mvn clean package -DskipTests
 
 # 🌟 Stage 2: Create a lightweight image to run the built JAR
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:21-jre-alpine
 
 # Set working directory
 WORKDIR /app
@@ -29,4 +29,3 @@ EXPOSE 8080
 
 # Run the Spring Boot application
 CMD ["java", "-jar", "app.jar"]
-
