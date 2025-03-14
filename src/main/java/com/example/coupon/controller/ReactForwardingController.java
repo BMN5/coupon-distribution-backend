@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ReactForwardingController {
 
-    @GetMapping("/heydontdoanything")
+    @GetMapping({"/", "/add-coupon", "/claim-coupon"})
     public String forwardToReact() {
         return "forward:/index.html";
     }
