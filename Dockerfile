@@ -1,5 +1,5 @@
 # 🌟 Stage 1: Build the Spring Boot Application
-FROM maven:3.9.2-eclipse-temurin-17-alpine AS builder  # Use Java 17 for Maven
+FROM maven:3.9.2-eclipse-temurin-17-alpine AS builder  # Corrected FROM syntax
 
 # Set working directory
 WORKDIR /app
@@ -16,7 +16,7 @@ COPY src/main/resources/static/ src/main/resources/static/
 RUN mvn clean package -DskipTests
 
 # 🌟 Stage 2: Create a lightweight image with Java 21
-FROM eclipse-temurin:21-jre-alpine  # Use Java 21 in runtime
+FROM eclipse-temurin:21-jre-alpine  # Correct runtime image
 
 # Set working directory
 WORKDIR /app
